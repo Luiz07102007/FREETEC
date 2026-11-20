@@ -1,0 +1,132 @@
+:root {
+  --topo: #000;
+  --fundo: #012a0f;
+  --limao: #c3ff6b;
+  --limao-suave: #a6e066;
+  --verde: #45c76a;
+  --painel: rgba(8, 36, 17, 0.78);
+  --linha: rgba(195, 255, 107, 0.3);
+  --texto: #fff;
+  --suave: #b7cdb9;
+  --erro: #ff8f87;
+  --tinta: #031a0a;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Montserrat", system-ui, sans-serif;
+  color: var(--texto);
+  background: linear-gradient(180deg, var(--topo) 0%, var(--fundo) 100%) fixed;
+  line-height: 1.55;
+}
+
+.wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+
+.icone { width: 1em; height: 1em; fill: currentColor; flex: none; }
+
+/* Topo */
+.topo { display: flex; align-items: center; justify-content: space-between; padding: 24px 0; }
+.marca { display: flex; align-items: center; gap: 12px; color: var(--limao); text-decoration: none; }
+.logo { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid var(--limao); font-size: 30px; color: var(--limao-suave); }
+.nome { font-weight: 800; font-size: 1.35rem; letter-spacing: 0.02em; }
+.menu { display: flex; align-items: center; gap: 24px; }
+.menu a { color: var(--suave); text-decoration: none; font-weight: 500; font-size: 0.95rem; }
+.menu a:hover { color: var(--texto); }
+.menu .entrar { color: var(--limao); border: 1px solid var(--linha); padding: 8px 18px; border-radius: 999px; font-weight: 600; }
+.menu .entrar:hover { color: var(--tinta); background: var(--limao); }
+
+/* Hero */
+.hero { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 64px; align-items: start; padding: 48px 0 88px; }
+h1 { margin: 0 0 20px; font-size: clamp(2.5rem, 5.2vw, 4.2rem); font-weight: 800; line-height: 1.04; color: var(--limao); letter-spacing: -0.01em; }
+.sub { margin: 0 0 32px; max-width: 34em; font-size: 1.1rem; }
+.beneficios { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.beneficios li { display: flex; align-items: center; gap: 12px; color: var(--suave); font-weight: 500; }
+.beneficios .icone { font-size: 16px; color: var(--limao); }
+
+/* Cartão de cadastro */
+.cartao { background: var(--painel); border: 1px solid var(--linha); border-radius: 16px; padding: 28px; }
+.cartao h2 { margin: 0 0 18px; font-size: 1.5rem; font-weight: 700; }
+
+.abas { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid rgba(255, 255, 255, 0.14); margin-bottom: 22px; }
+.abas button { font: inherit; font-weight: 600; background: none; border: 0; border-bottom: 2px solid transparent; margin-bottom: -1px; padding: 10px 8px; color: var(--suave); cursor: pointer; }
+.abas button[aria-selected="true"] { color: var(--limao); border-bottom-color: var(--limao); }
+.abas button:hover { color: var(--texto); }
+
+form { display: grid; gap: 14px; }
+form[hidden], .sucesso[hidden], .abas[hidden], .nota[hidden] { display: none; }
+.linha { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+.field { display: grid; gap: 6px; min-width: 0; }
+label { font-weight: 600; font-size: 0.875rem; }
+.opcional { font-weight: 400; color: var(--suave); }
+
+input, select {
+  width: 100%;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--texto);
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 12px 14px;
+  color-scheme: dark;
+}
+input::placeholder { color: #7f957f; }
+input:focus-visible, select:focus-visible, .ver:focus-visible, .abas button:focus-visible, .menu a:focus-visible, .marca:focus-visible, .chip button:focus-visible {
+  outline: 2px solid var(--limao);
+  outline-offset: 2px;
+}
+[aria-invalid="true"] { border-color: var(--erro); }
+
+.erro { min-height: 1.1em; font-size: 0.8rem; color: var(--erro); }
+
+.senha { position: relative; }
+.senha input { padding-right: 84px; }
+.ver { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); font: inherit; font-size: 0.8rem; font-weight: 600; color: var(--limao); background: none; border: 0; padding: 6px 10px; border-radius: 6px; cursor: pointer; }
+
+.chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.chips:empty { display: none; }
+.chip { display: inline-flex; align-items: center; gap: 4px; padding: 4px 6px 4px 12px; font-size: 0.82rem; font-weight: 600; color: var(--limao); background: rgba(195, 255, 107, 0.12); border: 1px solid var(--linha); border-radius: 999px; }
+.chip button { font: inherit; line-height: 1; color: inherit; background: none; border: 0; padding: 2px 6px; border-radius: 999px; cursor: pointer; }
+
+.botao { margin-top: 6px; font: inherit; font-weight: 700; font-size: 1rem; color: var(--tinta); background: var(--limao); border: 0; border-radius: 10px; padding: 14px 18px; cursor: pointer; }
+.botao:hover { background: #d6ff94; }
+.botao:focus-visible { outline: 2px solid var(--texto); outline-offset: 2px; }
+.botao:disabled { opacity: 0.7; cursor: progress; }
+
+.nota { margin: 16px 0 0; font-size: 0.8rem; color: var(--suave); }
+
+.sucesso { text-align: center; padding: 24px 0 8px; }
+.icone.grande { width: 56px; height: 56px; color: var(--limao); }
+.sucesso h3 { margin: 12px 0 8px; font-size: 1.4rem; color: var(--limao); }
+.sucesso h3:focus { outline: none; }
+.sucesso p { margin: 0 auto; max-width: 28em; color: var(--suave); }
+
+/* Como funciona */
+.passos { padding: 0 0 88px; }
+.passos h2 { margin: 0 0 28px; font-size: 1.8rem; font-weight: 800; }
+.passos ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.passos li { border-top: 2px solid var(--verde); padding-top: 16px; }
+.num { display: block; font-size: 2rem; font-weight: 800; color: var(--limao); line-height: 1; margin-bottom: 10px; }
+.passos h3 { margin: 0 0 6px; font-size: 1.05rem; }
+.passos p { margin: 0; color: var(--suave); font-size: 0.92rem; }
+
+.rodape { padding: 28px 0 36px; text-align: center; font-weight: 700; color: var(--limao-suave); font-size: 0.9rem; }
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; gap: 40px; padding-top: 24px; }
+  .passos ol { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 520px) {
+  .wrap { padding: 0 16px; }
+  .menu a:not(.entrar) { display: none; }
+  .cartao { padding: 20px; }
+  .linha { grid-template-columns: 1fr; }
+  .passos ol { grid-template-columns: 1fr; }
+}

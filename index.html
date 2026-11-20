@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Freetec | Projetos freelancer para alunos da Fatec</title>
+  <meta name="description" content="Conecte-se a empresas que precisam de serviços técnicos, com contrato, prazo e pagamento protegidos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="estrela" viewBox="0 0 100 100"><path d="M50 0C50 28 72 50 100 50C72 50 50 72 50 100C50 72 28 50 0 50C28 50 50 28 50 0Z"/></symbol>
+  </svg>
+
+  <div class="wrap">
+    <header class="topo">
+      <a class="marca" href="#" aria-label="Freetec, página inicial">
+        <span class="logo"><svg class="icone"><use href="#estrela"/></svg></span>
+        <span class="nome">FREETEC</span>
+      </a>
+      <nav class="menu" aria-label="Principal">
+        <a href="#como-funciona">Como funciona</a>
+        <a class="entrar" href="#">Entrar</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="texto">
+          <h1>Experiência real antes de se formar.</h1>
+          <p class="sub">O Freetec conecta alunos da Fatec a empresas que precisam de serviços técnicos, com contrato, prazo e pagamento protegidos.</p>
+          <ul class="beneficios">
+            <li><svg class="icone"><use href="#estrela"/></svg>Projetos filtrados pelas suas skills e pelo seu semestre</li>
+            <li><svg class="icone"><use href="#estrela"/></svg>Contrato em PDF com aceite digital das duas partes</li>
+            <li><svg class="icone"><use href="#estrela"/></svg>Pagamento em custódia, liberado após a aprovação final</li>
+          </ul>
+        </div>
+
+        <div class="cartao" id="cadastro">
+          <h2>Criar conta</h2>
+
+          <div class="abas" role="tablist" aria-label="Tipo de conta">
+            <button type="button" role="tab" id="aba-aluno" aria-selected="true" aria-controls="form-aluno">Sou aluno</button>
+            <button type="button" role="tab" id="aba-contratante" aria-selected="false" aria-controls="form-contratante" tabindex="-1">Sou contratante</button>
+          </div>
+
+          <form id="form-aluno" role="tabpanel" aria-labelledby="aba-aluno" novalidate>
+            <div class="field">
+              <label for="a-nome">Nome completo</label>
+              <input id="a-nome" name="nome" autocomplete="name" data-rule="nome">
+              <span class="erro" aria-live="polite"></span>
+            </div>
+            <div class="field">
+              <label for="a-email">E-mail institucional</label>
+              <input id="a-email" name="email" type="email" autocomplete="email" placeholder="nome@fatec.sp.gov.br" data-rule="emailFatec">
+              <span class="erro" aria-live="polite"></span>
+            </div>
+            <div class="field">
+              <label for="a-senha">Senha</label>
+              <div class="senha">
+                <input id="a-senha" name="senha" type="password" autocomplete="new-password" data-rule="senha">
+                <button type="button" class="ver" aria-pressed="false">Mostrar</button>
+              </div>
+              <span class="erro" aria-live="polite"></span>
+            </div>
+            <div class="linha">
+              <div class="field">
+                <label for="a-nascimento">Data de nascimento</label>
+                <input id="a-nascimento" name="nascimento" type="date" autocomplete="bday" data-rule="nascimento">
+                <span class="erro" aria-live="polite"></span>
+              </div>
+              <div class="field">
+                <label for="a-genero">Gênero</label>
+                <select id="a-genero" name="genero" data-rule="obrigatorio">
+                  <option value="">Selecione</option>
+                  <option>Feminino</option>
+                  <option>Masculino</option>
+                  <option>Não binário</option>
+                  <option>Prefiro não informar</option>
+                </select>
+                <span class="erro" aria-live="polite"></span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="a-semestre">Semestre atual</label>
+              <select id="a-semestre" name="semestre" data-rule="obrigatorio">
+                <option value="">Selecione</option>
+                <option>1º semestre</option><option>2º semestre</option><option>3º semestre</option>
+                <option>4º semestre</option><option>5º semestre</option><option>6º semestre</option>
+              </select>
+              <span class="erro" aria-live="polite"></span>
+            </div>
+            <div class="field">
+              <label for="skill-input">Hard skills</label>
+              <input id="skill-input" list="skills-sugeridas" autocomplete="off" placeholder="Digite e tecle Enter (ex.: Python)" data-rule="skills">
+              <datalist id="skills-sugeridas">
+                <option value="C++"><option value="Java"><option value="Python"><option value="SQL">
+                <option value="JavaScript"><option value="HTML"><option value="CSS"><option value="React">
+              </datalist>
+              <ul class="chips" id="chips" aria-label="Skills adicionadas"></ul>
+              <span class="erro" aria-live="polite"></span>
+            </div>
+            <div class="field">
+              <label for="a-portfolio">GitHub ou LinkedIn <span class="opcional">(opcional)</span></label>
+              <input id="a-portfolio" name="portfolio" type="url" placeholder="https://github.com/seu-usuario" data-rule="portfolio">
+              <span class="erro" aria-live="polite"></span>
+            </div>
+            <button class="botao" type="submit">Criar conta de aluno</button>
+          </form>
+
+          <form id="form-contratante" role="tabpanel" aria-labelledby="aba-contratante" hidden novalidate>
+            <div class="field">
+              <label for="c-nome">Nome ou razão social</label>
+              <input id="c-nome" name="nome" autocomplete="organization" data-rule="nome">
+              <span class="erro" aria-live="polite"></span>
+            </div>
+            <div class="field">
+              <label for="c-email">E-mail</label>
+              <input id="c-email" name="email" type="email" autocomplete="email" data-rule="email">
+              <span class="erro" aria-live="polite"></span>
+            </div>
+            <div class="field">
+              <label for="c-senha">Senha</label>
+              <div class="senha">
+                <input id="c-senha" name="senha" type="password" autocomplete="new-password" data-rule="senha">
+                <button type="button" class="ver" aria-pressed="false">Mostrar</button>
+              </div>
+              <span class="erro" aria-live="polite"></span>
+            </div>
+            <div class="field">
+              <label for="c-documento">CPF ou CNPJ</label>
+              <input id="c-documento" name="documento" inputmode="numeric" placeholder="000.000.000-00" data-rule="documento" data-mask="documento">
+              <span class="erro" aria-live="polite"></span>
+            </div>
+            <div class="field">
+              <label for="c-area">Área de atuação</label>
+              <input id="c-area" name="area" placeholder="Ex.: comércio varejista, educação" data-rule="area">
+              <span class="erro" aria-live="polite"></span>
+            </div>
+            <button class="botao" type="submit">Criar conta de contratante</button>
+          </form>
+
+          <p class="nota">Seu contato só fica visível para a outra parte depois que o contrato for aceito.</p>
+
+          <div class="sucesso" id="sucesso" hidden>
+            <svg class="icone grande"><use href="#estrela"/></svg>
+            <h3 id="sucesso-titulo" tabindex="-1"></h3>
+            <p id="sucesso-texto"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="passos" id="como-funciona" aria-labelledby="passos-titulo">
+        <h2 id="passos-titulo">Como funciona</h2>
+        <ol>
+          <li><span class="num">1</span><h3>Crie seu perfil</h3><p>Alunos informam skills e semestre. Empresas validam CPF ou CNPJ.</p></li>
+          <li><span class="num">2</span><h3>Encontre ou anuncie</h3><p>Empresas publicam projetos e alunos veem os que combinam com o seu perfil.</p></li>
+          <li><span class="num">3</span><h3>Feche o contrato</h3><p>Converse pelo chat, assine o contrato em PDF e deposite o valor em custódia.</p></li>
+          <li><span class="num">4</span><h3>Entregue e receba</h3><p>O aluno entrega, a empresa aprova e o pagamento é liberado.</p></li>
+        </ol>
+      </section>
+    </main>
+
+    <footer class="rodape">© 2026 TecInc. All rights reserved</footer>
+  </div>
+</body>
+</html>
